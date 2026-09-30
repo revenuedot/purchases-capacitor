@@ -1,3 +1,12 @@
+<!-- revenuedot:banner:start -->
+> [!NOTE]
+> **Fork of RevenueCat's MIT SDK, maintained by RevenueDot, not affiliated with RevenueCat.** It keeps the upstream public API (`Purchases.configure`, `Purchases.shared`, every class and method name), so app code and RevenueCat's guides work unchanged. It talks to [RevenueDot](https://github.com/revenuedot/revenuedot) at `https://api.revenuedot.app` by default (`setProxyURL` still points it at a self-hosted server) and verifies RevenueDot's response signatures. RevenueCat's copyright notice is kept in `LICENSE`. Patches: [scripts/forks](https://github.com/revenuedot/revenuedot/tree/main/scripts/forks). **Status: publishing to package registries is in progress.**
+>
+> **Install:** `"@revenuecat/purchases-capacitor-ui": "npm:@revenuedot/purchases-capacitor-ui@<version>"` next to the core alias.
+>
+> The upstream README follows, unchanged. Where it says RevenueCat's dashboard or API, use RevenueDot's.
+<!-- revenuedot:banner:end -->
+
 # @revenuecat/purchases-capacitor-ui
 
 UI components for RevenueCat Capacitor SDK. This plugin extends the functionality of the [@revenuecat/purchases-capacitor](https://github.com/RevenueCat/purchases-capacitor) plugin to provide UI components for displaying paywalls and customer center.

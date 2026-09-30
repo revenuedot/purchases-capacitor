@@ -1,0 +1,16 @@
+{
+  "note": "Fork of RevenueCat's MIT SDK, maintained by RevenueDot, not affiliated with RevenueCat.",
+  "pipeline": "https://github.com/revenuedot/revenuedot/tree/main/scripts/forks",
+  "rules": "scripts/forks/rules/purchases-capacitor.json",
+  "rulesSha256": "6f14d7e28c6701a682a1c3631751368420ae2a93988f4c498331c23962cac914",
+  "upstream": {
+    "repo": "https://github.com/RevenueCat/purchases-capacitor",
+    "mergeBase": "c633429e1f5d751ec64e61fd7f98fb60e61a5f56"
+  },
+  "apiHost": "https://api.revenuedot.app",
+  "signingPublicKey": "gXdn2hmqR/TbdtQwK02laE0YgFz0Rtf918LICLrgZhg=",
+  "publishes": [
+    "npm @revenuedot/purchases-capacitor",
+    "npm @revenuedot/purchases-capacitor-ui (install both through npm aliases so Capacitor's generated pod and SPM names stay the same)"
+  ]
+}
