@@ -2,7 +2,7 @@
   "note": "Fork of RevenueCat's MIT SDK, maintained by RevenueDot, not affiliated with RevenueCat.",
   "pipeline": "https://github.com/revenuedot/revenuedot/tree/main/scripts/forks",
   "rules": "scripts/forks/rules/purchases-capacitor.json",
-  "rulesSha256": "6a325805d78ff474cd8c5904204b7a944a15f50646850b8a4629c3770fcdebe7",
+  "rulesSha256": "6f14d7e28c6701a682a1c3631751368420ae2a93988f4c498331c23962cac914",
   "upstream": {
     "repo": "https://github.com/RevenueCat/purchases-capacitor",
     "mergeBase": "7eb5e1d8aa7c5b8e4ba3fdb7b9d05bfe77b25f8f"
