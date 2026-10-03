@@ -1,0 +1,30 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "RevenueDot Capacitor SDK",
+  "description": "RevenueDot's MIT fork of RevenueCat's Capacitor SDK (also for Ionic), pointed at RevenueDot, the open-source RevenueCat alternative for in-app purchases and subscriptions.",
+  "folders": [],
+  "excludeFolders": [
+    ".circleci",
+    ".github",
+    "fastlane",
+    ".revenuedot",
+    "scripts",
+    "__tests__",
+    "apitesters",
+    "api-report",
+    "e2e-tests",
+    "example",
+    ".husky"
+  ],
+  "excludeFiles": [
+    "CHANGELOG.md",
+    "CHANGELOG.latest.md",
+    "CHANGELOG-LATEST.md"
+  ],
+  "rules": [
+    "Install only through npm aliases: \"@revenuecat/purchases-capacitor\": \"npm:@revenuedot/purchases-capacitor@<version>\", and the same for purchases-capacitor-ui. Capacitor derives native names from the npm package name.",
+    "Keep `import { Purchases } from \"@revenuecat/purchases-capacitor\"`; the alias leaves imports unchanged. Then run `npx cap sync`.",
+    "RevenueDot Cloud (https://api.revenuedot.app) is the default API host. For a self-hosted server, call `await Purchases.setProxyURL({ url: \"https://revenuedot.example.com\" })` before `configure`.",
+    "Pass each app's public key from the RevenueDot dashboard to `Purchases.configure`: appl_ for iOS and goog_ for Android."
+  ]
+}
