@@ -1,11 +1,61 @@
-<!-- revenuedot:banner:start -->
-> [!NOTE]
-> **Fork of RevenueCat's MIT SDK, maintained by RevenueDot, not affiliated with RevenueCat.** It keeps the upstream public API (`Purchases.configure`, `Purchases.shared`, every class and method name), so app code and RevenueCat's guides work unchanged. It talks to [RevenueDot](https://github.com/revenuedot/revenuedot) at `https://api.revenuedot.app` by default (`setProxyURL` still points it at a self-hosted server) and verifies RevenueDot's response signatures. RevenueCat's copyright notice is kept in `LICENSE`. Patches: [scripts/forks](https://github.com/revenuedot/revenuedot/tree/main/scripts/forks). **Status: publishing to package registries is in progress.**
->
-> **Install:** npm aliases keep every import and Capacitor's generated native names: `"@revenuecat/purchases-capacitor": "npm:@revenuedot/purchases-capacitor@<version>"` (and `-ui`), then `npx cap sync`.
->
-> The upstream README follows, unchanged. Where it says RevenueCat's dashboard or API, use RevenueDot's.
-<!-- revenuedot:banner:end -->
+<!-- revenuedot:readme:start -->
+<p align="center"><a href="https://revenuedot.app"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/revenuedot/revenuedot/main/brand/kit/wordmark/revenuedot-lockup-white.svg">
+  <img alt="RevenueDot" src="https://raw.githubusercontent.com/revenuedot/revenuedot/main/brand/kit/wordmark/revenuedot-lockup-black.svg" height="40">
+</picture></a></p>
+
+# RevenueDot Capacitor SDK
+
+This is RevenueDot's MIT fork of RevenueCat's `@revenuecat/purchases-capacitor`: the same classes and method names, pointed at a RevenueDot server ([RevenueDot Cloud](https://app.revenuedot.app/signup) at `https://api.revenuedot.app`, or one you host) with RevenueDot's response-signing key built in, and kept in sync with upstream.
+
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE) [![npm](https://img.shields.io/npm/v/@revenuedot/purchases-capacitor?label=npm)](https://www.npmjs.com/package/@revenuedot/purchases-capacitor) [![Upstream](https://img.shields.io/badge/upstream-RevenueCat%2Fpurchases--capacitor_13.6.1-lightgrey)](https://github.com/RevenueCat/purchases-capacitor)
+
+## Install
+
+Install **only through npm aliases**: Capacitor derives the native pod and Swift package names from the npm package name, and the aliases keep them (and every import) unchanged.
+```json
+{
+  "dependencies": {
+    "@revenuecat/purchases-capacitor": "npm:@revenuedot/purchases-capacitor@13.6.1",
+    "@revenuecat/purchases-capacitor-ui": "npm:@revenuedot/purchases-capacitor-ui@13.6.1"
+  }
+}
+```
+Then `npx cap sync`.
+
+## Configure
+
+```ts
+import { Capacitor } from "@capacitor/core";
+import { Purchases } from "@revenuecat/purchases-capacitor";   // the alias keeps this import
+
+// Self-hosted server only: RevenueDot Cloud (https://api.revenuedot.app) is the default.
+await Purchases.setProxyURL({ url: "https://revenuedot.example.com" });
+await Purchases.configure({ apiKey: Capacitor.getPlatform() === "ios" ? "appl_..." : "goog_..." });   // each app's public key
+```
+
+The fork already trusts RevenueDot's signing key, so no signature or verification setting is needed. Full guide: https://revenuedot.app/docs/sdks/capacitor.
+
+## What RevenueDot adds
+
+- **Self-host for free, or use RevenueDot Cloud** free up to $10,000 a month of tracked revenue ([pricing](https://revenuedot.app/pricing)).
+- **The same REST API and webhook payloads** as RevenueCat, so your backend and integrations keep working ([API reference](https://revenuedot.app/docs/api)).
+- **Paywalls, experiments and the Customer Center** built in the RevenueDot dashboard and rendered by this SDK ([guides](https://revenuedot.app/docs/guides)).
+- **A one-line migration:** point the stock SDK at RevenueDot with `setProxyURL`, or install this fork and drop the line ([migration guide](https://revenuedot.app/docs/migrate)).
+
+## Links
+
+- **Docs for this SDK:** https://revenuedot.app/docs/sdks/capacitor
+- **Releases and changelog:** https://github.com/revenuedot/purchases-capacitor/releases (tags `<upstream version>-revenuedot`; upstream's changes are in `CHANGELOG.md`)
+- **RevenueDot server and dashboard:** https://github.com/revenuedot/revenuedot
+- **Fork pipeline (what we change and how upstream is merged):** https://github.com/revenuedot/revenuedot/tree/main/scripts/forks
+
+RevenueDot is not affiliated with RevenueCat, Inc. RevenueCat's copyright notice stays in `LICENSE`; RevenueDot's changes are MIT too.
+
+---
+
+## Upstream README (RevenueCat's, unchanged)
+<!-- revenuedot:readme:end -->
 
 <h3 align="center">😻 In-App Subscriptions Made Easy 😻</h3>
 
